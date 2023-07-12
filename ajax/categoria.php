@@ -39,17 +39,24 @@ switch ($_GET["op"]) {
     case 'listar':
         $respuesta = $categoria->listar();
         $data = array();
-
+        
         while ($resp = $respuesta->fetch_object()) {
-            
             $data[] = array(
                 "0"=>$resp->idcategoria,
                 "1"=>$resp->nombre,
                 "2"=>$resp->descripcion,
                 "3"=>$resp->condicion
             );
-
         }
+
+        $result = array(
+            "echo"=>1,
+            "totalrecords"=>count($data),
+            "iTotalDisplayRecords"=>count($data),
+            "aaData"=>$data
+        );
+
+        echo json_encode($result);
 
         break;
 }
