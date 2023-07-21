@@ -23,7 +23,7 @@
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">articulos <button class="btn btn-success" id="btnagregar" onclick="mostrarelformulario(true)"><i class="fa fa-plus-circle"></i>
+                <h1 class="box-title">Categoría <button class="btn btn-success" id="btnagregar" onclick="mostrarelformulario(true)"><i class="fa fa-plus-circle"></i>
                     Agregar</button>
                 </h1>
                 <div class="box-tools pull-right">
@@ -31,6 +31,7 @@
               </div>
               <!-- /.box-header -->
               <!-- centro -->
+
               <div class="panel-body table-responsive" id="listadoregistros">
                 <table id="tablalistado" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
@@ -55,54 +56,16 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>nombre</label>
-                        <input type="hidden" name="idarticulo" id="idarticulo">
+                        <label>Nombre:</label>
+                        <input type="hidden" name="idcategoria" id="idcategoria">
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="escribir nombre" required>
                       </div>
                     </div>
 
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>categoria</label>
-                        <select name="idcategoria" class="form-control" id="idcategoria"></select>
-
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>stock</label>
-                        <input type="text" class="form-control" name="stock" id="stock" placeholder="escribir nombre" required>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>descripcion</label>
+                        <label>Descripción:</label>
                         <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="escribir descripcion" required>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>imagen</label>
-                        <input type="file" class="form-control" name="imagen" id="imagen">
-                        <input type="hidden" name="imagenactual" id="imagenactual"><br>
-                        <img src="" width="150px" height="120px" id="imagenmuestra">
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>codigo</label>
-                        <input type="text" class="form-control" name="codigo" id="codigo" placeholder="escribir descripcion" required><br>
-                        <button class="btn btn-success" type="button" onclick="generarbarcode()">Generar</button>
-
-                        <div id="print">
-                          <svg id="barcode"></svg>
-                        </div>
-
-
                       </div>
                     </div>
 

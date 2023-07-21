@@ -39,24 +39,29 @@ switch ($_GET["op"]) {
     case 'listar':
         $respuesta = $categoria->listar();
         $data = array();
-        
+
         while ($resp = $respuesta->fetch_object()) {
             $data[] = array(
-                "0"=>$resp->idcategoria,
-                "1"=>$resp->nombre,
-                "2"=>$resp->descripcion,
-                "3"=>$resp->condicion
+                "0" => ($resp->condicion) ? '<button class="btn btn-warning" onclick="mostrar(' . $resp->idcategoria . ')"><i class="fa fa-edit"></i></button>' .
+                    ' <button class="btn btn-danger" onclick="desactivar(' . $resp->idcategoria . ')"><i class="fa fa-times"></i></button>' :
+                    '<button class="btn btn-warning" onclick="mostrar(' . $resp->idcategoria . ')"><i class="fa fa-edit"></i></button>' .
+                    ' <button class="btn btn-success" onclick="activar(' . $resp->idcategoria . ')"><i class="fa fa-check"></i></button>',
+                "1" => $resp->nombre,
+                "2" => $resp->descripcion,
+                "3" => ($resp->condicion) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
             );
         }
 
         $result = array(
-            "echo"=>1,
-            "totalrecords"=>count($data),
-            "iTotalDisplayRecords"=>count($data),
-            "aaData"=>$data
+            "echo" => 1,
+            "totalrecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
         );
 
         echo json_encode($result);
 
         break;
 }
+
+?>

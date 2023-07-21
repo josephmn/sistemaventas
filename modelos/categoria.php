@@ -46,8 +46,10 @@ class Categotia
     }
 
     public function select()
-	{
-		$sql="SELECT * FROM categoria where condicion=1";
-		return ejecutarConsulta($sql);		
-	}
+    {
+        $sql = "SELECT * FROM categoria where condicion=1";
+        return ejecutarConsulta($sql);
+    }
 }
+
+?>
